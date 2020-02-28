@@ -18,8 +18,11 @@ public class Calculator extends ParseStringtoExpression {
         for (int i = 0;i < expression.length();i++){
             if(expression.charAt(i)== ' ') continue;
             if(getPriority(expression.charAt(i)) == 0){
-                while (getPriority(expression.charAt(i)) == 0 && expression.charAt(i)!= ' ' ){
-                    answer+=expression.charAt(i++);
+                while (getPriority(expression.charAt(i)) == 0 &&
+                        expression.charAt(i)!= ' ' ||
+                        getPriority(expression.charAt(i))==-2){
+                    answer+=expression.charAt(i);
+                    i++;
                     if(i==expression.length()) break;
                 }
                 stack.push(Double.parseDouble(answer));
