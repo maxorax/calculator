@@ -40,7 +40,7 @@ public class ParseStringtoExpression  {
 
 
             if(priority>1){
-                //rpn += " " ;
+                rpn.add(" ");
                 while (!stack.empty()){
                     if(getPriority(stack.peek()) >= priority){
                         rpn.add(String.valueOf(stack.pop()));
@@ -53,7 +53,7 @@ public class ParseStringtoExpression  {
             }
 
             if (priority == -1){
-                //rpn += ' ';
+                rpn.add(" ");
                 while (getPriority(stack.peek()) != 1) {
                     rpn.add(String.valueOf(stack.pop()));
                 }
